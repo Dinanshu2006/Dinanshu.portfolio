@@ -246,6 +246,7 @@ a.active {
     width: 100%;
     max-width: 250px;
     height: auto;
+    border:4px;
     border-radius: 10px;
     background-color: rgb(19, 220, 255);
     box-shadow: 0px 0px 20px aqua;
@@ -628,4 +629,5 @@ h1 {
 }
 .clone-pica {
     border-radius: 50%;
+
 }
