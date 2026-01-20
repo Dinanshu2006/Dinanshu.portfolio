@@ -1,0 +1,1091 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    background-color: #1f242d;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+
+}
+
+@media (min-width: 768px) {
+    body {
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 1024px) {
+    body {
+        font-size: 18px;
+    }
+}
+/* ===========================
+   HEADER / NAVBAR
+=========================== */
+/* ===================== HEADER ===================== */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(20, 20, 30, 0.85); /* semi-glass effect */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    font-family: 'Poppins', sans-serif;
+}
+
+header .main {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+}
+
+header .heading h1 {
+    color: cyan;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+header .anchor {
+    display: flex;
+    gap: 20px;
+}
+
+header .nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+header .nav a:hover,
+header .nav a.active {
+    color: cyan;
+    background: rgba(0, 255, 255, 0.1);
+    text-shadow: 0 0 8px cyan;
+}
+
+/* ===================== HAMBURGER MENU ===================== */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    z-index: 1001;
+}
+
+.hamburger div {
+    width: 25px;
+    height: 3px;
+    background: white;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* ===================== HAMBURGER ANIMATION ===================== */
+.hamburger.active div:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active div:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active div:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* ===================== MOBILE RESPONSIVE ===================== */
+@media (max-width: 768px) {
+    header .anchor {
+        position: fixed;
+        top: 0; /* full height from top */
+        right: -100%; /* hidden by default */
+        flex-direction: column;
+        background: rgba(20, 20, 30, 0.95);
+        width: 60%; /* mobile menu width */
+        height: 100vh;
+        padding-top: 80px; /* leave space for hamburger */
+        gap: 20px;
+        transition: 0.3s ease;
+        border-left: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: -5px 0 15px rgba(0,0,0,0.3);
+    }
+
+    header .anchor.active {
+        right: 0; /* slide in from right */
+    }
+
+    .hamburger {
+        display: flex;
+        position: fixed;
+        top: 20px;
+        right: 20px; /* fixed at top-right */
+    }
+}
+
+/* ===================== OPTIONAL: OVERLAY FOR MOBILE MENU ===================== */
+.mobile-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    z-index: 1000;
+    transition: 0.3s ease;
+}
+
+.mobile-overlay.active {
+    display: block;
+}
+
+/* ===========================
+   HOME SECTION
+=========================== */
+.section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 20px;
+    font-family: Lato Regular;
+    color: aliceblue;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+/* TEXT COLUMN */
+.written {
+    flex: 1;
+    max-width: 650px;
+    margin-left: 50px;
+    order: 2; /* Text comes second on mobile when stacked */
+}
+
+.written h4 {
+    font-size: 1.2rem;
+    color: cyan;
+    margin: 10px 0;
+    text-shadow: 0 0 8px rgba(0, 255, 255, 0.6);
+}
+
+.written h2 {
+    color: rgb(132, 0, 255);
+    font-size: 3rem;
+    margin: 10px 0;
+    text-shadow: 5px 5px 20px rgba(0,0,0,0.4);
+}
+
+.written p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin: 30px 0 80px 0;
+    color: #e0e0e0;
+    text-align: justify;
+}
+
+/* PASSION TYPING EFFECT */
+.passion:after {
+    content: " ";
+    color: cyan;
+    animation: passionn 5s infinite;
+    font-family: Audiowide;
+    font-weight: 500;
+}
+
+@keyframes passionn {
+    0% { content: "D|"; }
+    4% { content: "De|"; }
+    8% { content: "Dev|"; }
+    12% { content: "Deve|"; }
+    16% { content: "Devel|"; }
+    20% { content: "Develo|"; }
+    24% { content: "Develop|"; }
+    28% { content: "Develope|"; }
+    32% { content: "Developer|"; }
+    36% { content: "Developer |"; }
+    42% { content: "Developer !|"; }
+    46% { content: "C|"; }
+    50% { content: "Co|"; }
+    54% { content: "Cod|"; }
+    58% { content: "Code|"; }
+    62% { content: "Coder|"; }
+    64% { content: "Coder |"; }
+    66% { content: "Coder !|"; }
+    70% { content: "S"; }
+    74% { content: "St|"; }
+    78% { content: "Stu|"; }
+    82% { content: "Stud|"; }
+    86% { content: "Stude|"; }
+    90% { content: "Studen|"; }
+    94% { content: "Student|"; }
+    98% { content: "Student |"; }
+    100% { content: "Student !|"; }
+}
+
+/* RESUME BUTTON */
+.resume {
+    display: inline-block;
+    padding: 10px 25px;
+    border-radius: 10px;
+    background: rgba(0, 255, 255, 0.2);
+    border: 1px solid cyan;
+    font-size: 1.2rem;
+    text-align: center;
+    box-shadow: 0 0 20px cyan;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.resume:hover {
+    background: cyan;
+    color: #000;
+    transform: scale(1.05);
+}
+
+/* IMAGE COLUMN */
+.image {
+    flex: 1;
+    text-align: center;
+    order: 1; /* Image comes first on mobile */
+    margin-bottom: 30px;
+}
+
+.image img {
+    border-radius: 50%;
+    box-shadow: 0 0 50px 10px rgb(8, 18, 96);
+    max-width: 300px;
+    width: 100%;
+    transition: transform 0.3s ease;
+}
+
+.image img:hover {
+    transform: scale(1.05);
+}
+
+/* SOCIAL ICONS */
+.icon {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.icon i {
+    color: aliceblue;
+    margin: 5px;
+    font-size: 2rem;
+    transition: all 0.3s ease;
+}
+
+.icon i:hover {
+    color: cyan;
+    transform: scale(1.2);
+}
+
+/* ===========================
+   RESPONSIVE DESIGN
+=========================== */
+@media (max-width: 1024px) {
+    .section {
+        flex-direction: column;
+        text-align: center;
+        padding: 60px 20px;
+    }
+
+    .written {
+        margin-left: 0;
+        max-width: 90%;
+        margin-bottom: 30px;
+    }
+
+    .image img {
+        max-width: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .written h2 {
+        font-size: 2rem;
+    }
+
+    .written p {
+        font-size: 1rem;
+    }
+
+    .passion:after {
+        font-size: 1rem;
+    }
+
+    .image img {
+        width: 200px;
+    }
+
+    .resume {
+        font-size: 1rem;
+        padding: 8px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .written h2 {
+        font-size: 1.5rem;
+    }
+
+    .written p {
+        font-size: 0.9rem;
+    }
+
+    .image img {
+        width: 150px;
+    }
+
+    .resume {
+        font-size: 0.9rem;
+        padding: 6px 15px;
+    }
+}
+
+
+
+/* about me side */
+/* ===========================
+   ABOUT ME SECTION
+=========================== */
+.aboutme {
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('background.jpg') no-repeat center center/cover; /* optional */
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.aboutme-content {
+    max-width: 1000px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05); /* glass effect */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 40px 30px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0, 255, 255, 0.2);
+}
+
+.aboutme-content h1#heading2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: cyan;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
+}
+
+/* PROFILE PICTURE */
+#pic {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: 3px solid cyan;
+    margin: 20px 0;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+#pic:hover {
+    transform: scale(1.05);
+}
+
+/* SOCIAL ICONS */
+.icon {
+    margin: 15px 0;
+}
+
+.icon a {
+    color: #fff;
+    margin: 0 10px;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.icon a:hover {
+    color: cyan;
+    transform: scale(1.2);
+}
+
+/* ABOUT TEXT */
+#aboutwrite {
+    font-size: 1rem;
+    line-height: 1.7;
+    text-align: justify;
+    margin-top: 20px;
+    color: #e0e0e0;
+}
+
+/* ===========================
+   RESPONSIVE DESIGN
+=========================== */
+@media (max-width: 1024px) {
+    .aboutme-content {
+        padding: 35px 25px;
+    }
+
+    #pic {
+        width: 200px;
+        height: 200px;
+    }
+
+    .icon a {
+        font-size: 1.4rem;
+    }
+
+    #aboutwrite {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .aboutme {
+        padding: 40px 15px;
+    }
+
+    .aboutme-content {
+        padding: 30px 20px;
+    }
+
+    #pic {
+        width: 180px;
+        height: 180px;
+    }
+
+    .icon a {
+        font-size: 1.3rem;
+    }
+
+    #aboutwrite {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .aboutme-content {
+        padding: 25px 15px;
+    }
+
+    #pic {
+        width: 150px;
+        height: 150px;
+    }
+
+    .icon a {
+        font-size: 1.2rem;
+        margin: 0 8px;
+    }
+
+    #aboutwrite {
+        font-size: 0.85rem;
+        line-height: 1.5;
+    }
+
+    .aboutme-content h1#heading2 {
+        font-size: 2rem;
+    }
+}
+
+
+/* Skill me side  */
+/* ===========================
+   SKILL SECTION
+=========================== */
+.skill {
+    padding: 60px 20px;
+    background: url('background.jpg') no-repeat center center/cover; /* optional */
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+
+.skill .head h1 {
+    font-size: 2.5rem;
+    color: cyan;
+    margin-bottom: 40px;
+    text-shadow: 0 0 10px rgba(0,255,255,0.6);
+}
+
+/* ===========================
+   SKILL CARDS CONTAINER
+=========================== */
+.knowledge {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+}
+
+/* ===========================
+   EACH SKILL CARD
+=========================== */
+.knowledge > div {
+    background: rgba(255, 255, 255, 0.05); /* glass effect */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 140px;
+    padding: 20px 15px;
+    transition: all 0.3s ease;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 255, 255, 0.2);
+}
+
+.knowledge > div:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 255, 255, 0.4);
+    border-color: cyan;
+}
+
+/* IMAGE STYLING */
+.knowledge img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 10px;
+}
+
+/* SKILL NAME */
+.knowledge h1 {
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+@media (max-width: 1024px) {
+    .knowledge > div {
+        width: 120px;
+        padding: 18px 12px;
+    }
+
+    .knowledge img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .knowledge h1 {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .knowledge {
+        gap: 18px;
+    }
+
+    .knowledge > div {
+        width: 100px;
+        padding: 15px 10px;
+    }
+
+    .knowledge img {
+        width: 45px;
+        height: 45px;
+    }
+
+    .knowledge h1 {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .skill .head h1 {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+
+    .knowledge > div {
+        width: 90px;
+        padding: 12px 8px;
+    }
+
+    .knowledge img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .knowledge h1 {
+        font-size: 0.9rem;
+    }
+}
+
+/* ===============================
+   PROJECT BUTTON CONTAINER
+================================ */
+.projectdata {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 60px;
+}
+#sub{
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: cyan;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
+    text-align: center;
+}
+
+/* ===============================
+   PROJECT BUTTON CARD
+================================ */
+#pro {
+    width: 260px;
+    min-height: 220px;
+    background: linear-gradient(145deg, #101b2d, #1a2a45);
+    border: 2px solid rgba(0, 255, 255, 0.4);
+    border-radius: 20px;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    text-align: center;
+    transition: all 0.35s ease;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+/* IMAGE */
+#pro img {
+    width: 120px;
+    max-width: 100%;
+    height: auto;
+    transition: transform 0.35s ease;
+}
+
+/* HOVER EFFECT */
+#pro:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 25px 45px rgba(0, 255, 255, 0.4);
+    border-color: cyan;
+}
+
+#pro:hover img {
+    transform: scale(1.1);
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+    .projectdata {
+        gap: 20px;
+    }
+
+    #pro {
+        width: 90%;
+        max-width: 320px;
+        min-height: 200px;
+        font-size: 1rem;
+    }
+
+    #pro img {
+        width: 100px;
+    }
+}
+
+@media (max-width: 480px) {
+    #pro {
+        width: 100%;
+        max-width: 100%;
+        min-height: 190px;
+    }
+}
+
+
+.calc {
+    height: 200px;
+    margin-top: 100px;
+    box-shadow: 0px 0px 50px aqua;
+    margin-bottom: 50px;
+}
+
+.calc a {
+    color: blueviolet;
+    font-size: 0.9rem;
+    margin-left: 10px;
+}
+
+/* 📱 Mobile adjustments */
+@media(max-width: 768px) {
+    .projectdata {
+        flex-direction: column;
+    }
+
+    .clone-pic,
+    .calc {
+        width: 150px;
+        height: 150px;
+        margin-top: 50px;
+        margin-bottom: 30px;
+    }
+
+    #code {
+        width: auto;
+        padding: 8px 15px;
+        font-size: 1rem;
+    }
+}
+
+/* Containing style for Contact page */
+/* ===============================
+   CONTACT PAGE SECTION
+================================ */
+.contactPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px 20px;
+    background: url('your-background.jpg') no-repeat center center/cover; /* optional background image */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ===============================
+   FORM STYLING
+================================ */
+.contactPage form {
+    width: 100%;
+    max-width: 500px;
+    background: rgba(255, 255, 255, 0.08); /* glass effect */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 30px 25px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+/* FORM HEADING */
+.contactPage form h1 {
+    text-align: center;
+    color: #00ffff;
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+/* INPUTS & TEXTAREA */
+.contactPage input[type="text"],
+.contactPage input[type="email"],
+.contactPage textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+    resize: none;
+}
+
+.contactPage input::placeholder,
+.contactPage textarea::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* FOCUS EFFECT */
+.contactPage input:focus,
+.contactPage textarea:focus {
+    border-color: #00ffff;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* BUTTON */
+#btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 25px;
+    background: rgba(0, 255, 255, 0.2);
+    border: 1px solid rgba(0, 255, 255, 0.5);
+    border-radius: 25px;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+#btn:hover {
+    background: rgba(0, 255, 255, 0.35);
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0, 255, 255, 0.3);
+}
+
+/* ICON INSIDE BUTTON */
+#icn {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+#btn:hover #icn {
+    transform: translateX(5px);
+}
+
+/* SEND TEXT */
+#send {
+    font-weight: 600;
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+    .contactPage form {
+        padding: 25px 20px;
+    }
+
+    .contactPage form h1 {
+        font-size: 1.7rem;
+    }
+
+    #btn {
+        padding: 10px 20px;
+        font-size: 0.95rem;
+    }
+
+    #icn {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .contactPage {
+        padding: 20px 15px;
+    }
+
+    .contactPage form {
+        padding: 20px 15px;
+    }
+
+    .contactPage form h1 {
+        font-size: 1.5rem;
+    }
+
+    #btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* ===============================
+   PROJECT WINDOW WRAPPER
+================================ */
+.webwindow {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9998;
+    display:none;
+}
+
+/* ===============================
+   MAIN PROJECT MODAL
+================================ */
+.webpro {
+    position: relative;
+    width: 90%;
+    max-width: 520px;
+    max-height: 85vh;
+    background: rgba(21, 31, 51, 0.9);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-radius: 20px;
+    padding: 20px;
+    overflow-y: auto;
+    border: 2px solid rgba(0, 255, 255, 0.6);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+}
+
+/* ===============================
+   HEADER
+================================ */
+.he h2 {
+    font-size: 1.8rem;
+}
+
+#para {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* ===============================
+   CLOSE BUTTON
+================================ */
+#close {
+    position: sticky;
+    top: 10px;
+    float: right;
+    background: rgba(0,0,0,0.3);
+    border: none;
+    padding: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10000;
+}
+
+.fa-square-xmark {
+    font-size: 2.3rem;
+    color: #ff4d4d;
+    transition: transform 0.3s ease;
+}
+
+.fa-square-xmark:hover {
+    transform: scale(1.2);
+}
+
+/* ===============================
+   PROJECT ITEMS
+================================ */
+.cal, .ama, .qr, .prank, .imgsel, .player {
+    text-align: center;
+    margin: 30px 0 20px;
+    color: white;
+}
+
+.cal h2, .ama h2, .qr h2,
+.prank h2, .imgsel h2, .player h2 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+/* ===============================
+   BUTTONS
+================================ */
+#btn, #btnc {
+    padding: 8px 18px;
+    margin: 6px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+/* Demo button */
+#btn {
+    background: linear-gradient(135deg, #00ffcc, #00bfff);
+    color: #000;
+}
+
+/* Code button */
+#btnc {
+    background: linear-gradient(135deg, #ffb347, #ffcc33);
+    color: #000;
+}
+
+#btn:hover, #btnc:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* ===============================
+   FILE ICONS
+================================ */
+.fa-file {
+    margin-left: 6px;
+    color: #333;
+}
+
+#file1, #file2, #file3,
+#file4, #file5, #file6 {
+    margin-left: 4px;
+    color: green;
+}
+
+/* ===============================
+   SECOND WINDOW (win2)
+================================ */
+.webpro2 {
+    display: none;
+}
+
+/* ===============================
+   RESPONSIVE DESIGN
+================================ */
+@media (max-width: 768px) {
+    .webpro {
+        width: 95%;
+        max-height: 90vh;
+        padding: 15px;
+        border-radius: 15px;
+    }
+
+    .he h2 {
+        font-size: 1.5rem;
+    }
+
+    .cal h2, .ama h2, .qr h2,
+    .prank h2, .imgsel h2, .player h2 {
+        font-size: 1.05rem;
+    }
+
+    #btn, #btnc {
+        padding: 7px 14px;
+        font-size: 0.9rem;
+    }
+
+    .fa-square-xmark {
+        font-size: 2rem;
+    }
+}
+
+/* ===============================
+   SMALL MOBILE DEVICES
+================================ */
+@media (max-width: 480px) {
+    .webpro {
+        max-height: 92vh;
+    }
+
+    #para {
+        font-size: 0.8rem;
+    }
+}
