@@ -171,6 +171,7 @@ header .nav a.active {
     color: aliceblue;
     flex-wrap: wrap;
     position: relative;
+    height:auto;
 }
 
 /* TEXT COLUMN */
